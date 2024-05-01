@@ -10,17 +10,6 @@ def visualize_textual_lengths(data):
     plt.title('Distribution of Textual Lengths')
     plt.show()
 
-""" def perform_sentiment_analysis(data):
-    sentiment_scores = data['headline'].apply(lambda x: TextBlob(x).sentiment.polarity)
-    # Create a bar plot to visualize sentiment scores
-    plt.bar(data.index, sentiment_scores)
-    plt.xlabel('Article Index')
-    plt.ylabel('Sentiment Score')
-    plt.title('Sentiment Analysis of Headlines')
-    plt.show() """
-
-
-
 def visualize_publication_dates(news_frequency, news_frequency_monthly):
     # Reset index for news_frequency_monthly DataFrame
     news_frequency_monthly = news_frequency_monthly.reset_index()
