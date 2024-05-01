@@ -24,7 +24,7 @@ def load_cleaned_dataset():
     try:
         # Get the path to the CSV file
         current_dir = os.path.dirname(os.path.abspath(__file__))
-        csv_path = os.path.join(current_dir, '../data/processed/cleaned_analyst_ratings.csv')
+        csv_path = os.path.join(current_dir, '../data/cleaned_analyst_ratings.csv')
 
         # Load the CSV file into a DataFrame
         df = pd.read_csv(csv_path)

@@ -76,7 +76,7 @@ target/
 .ipynb_checkpoints/
 
 # exclude data from source control by default
-data/raw_analyst_ratings.csv
+notebooks/data/cleaned_analyst_ratings.csv
 notebooks/data/raw_analyst_ratings.csv
 
 # Mac OS-specific storage files
