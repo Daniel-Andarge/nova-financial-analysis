@@ -26,6 +26,4 @@ git clone https://github.com/Daniel-Andarge/nova-financial-analysis.git
 
 3. Run the project using Jupyter Notebook. This will open a new browser window with the project at http://localhost:8888/ URL.
 
-4. To see the Exploratory Data Analysis (EDA), navigate to the `/notebooks/interim` folder and open the notebook file.
-
-Please ensure that you have the necessary software and libraries installed to run the project successfully. Refer to the documentation and requirements.txt file for more information.
+4. To see the Exploratory Data Analysis (EDA), navigate to the `/notebooks` folder and open the notebook file.
