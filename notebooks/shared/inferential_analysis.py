@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 
 def analyze_publication_dates(data):
     # Extract date components for analysis
-    data['date'] = pd.to_datetime(data['date'], format='%Y-%m-%d %H:%M:%S')  # Remove %z from the format string
+    data['date'] = pd.to_datetime(data['date'], errors='coerce')
     data['year'] = data['date'].dt.year
     data['month'] = data['date'].dt.month
     data['day'] = data['date'].dt.dayofweek
@@ -28,7 +28,7 @@ def analyze_publication_dates(data):
     
 
 
-def perform_sentiment_analysis(data):
+""" def perform_sentiment_analysis(data):
 
     # Initialize sentiment analysis pipeline
     sentiment_pipeline = pipeline("sentiment-analysis")
@@ -43,20 +43,20 @@ def perform_sentiment_analysis(data):
     data['sentiment'] = sentiment_results
 
     # Print the results
-    print(data[['headline', 'sentiment']])
+    print(data[['headline', 'sentiment']]) """
 
 
 
 def perform_sentiment_analysis(data):
     # Calculate sentiment scores for each headline
     sentiment_scores = data['headline'].apply(lambda x: TextBlob(x).sentiment.polarity)
+    return sentiment_scores
 
-    # Create a bar plot to visualize sentiment scores
-    plt.bar(data.index, sentiment_scores)
-    plt.xlabel('Article Index')
-    plt.ylabel('Sentiment Score')
-    plt.title('Sentiment Analysis of Headlines')
-    plt.show()
+
+
+
+
+
 
 
 
