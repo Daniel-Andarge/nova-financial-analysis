@@ -1,9 +1,22 @@
 import pandas as pd
-import yfinance as yf
-import talib
 
-def load_stock_prices(df):
-    processed_data = pd.DataFrame()  # Initialize an empty dataframe for processed data
+import pandas as pd
+import yfinance as yf
+
+
+def fetch_stock_prices(ticker):
+    # Fetch the historical stock price data using yfinance
+    stock_data = yf.Ticker(ticker).history(period="max")
+    
+    # Return the fetched stock price data
+    return stock_data
+
+
+
+
+""" def load_stock_prices(df):
+    # Load your dataset containing stock symbols and dates from a CSV file
+   
 
     # Fetch and process stock data for each stock symbol
     for symbol in df['stock']:
@@ -15,31 +28,11 @@ def load_stock_prices(df):
         end_date = stock_df['date'].max()
 
         # Fetch stock data using yfinance
-        stock_data = fetch_stock_data(symbol, start_date, end_date)
+        stock_data = yf.download(symbol, start=start_date, end=end_date)
 
-        # Calculate technical indicators using TA-Lib
-        stock_data = calculate_technical_indicators(stock_data)
+        # Process and analyze the fetched stock data as needed
+        # ...
 
-        # Concatenate processed data to the main dataframe
-        processed_data = pd.concat([processed_data, stock_data])
+        # Example: Print the fetched stock data
+        return stock_data """
 
-    return processed_data
-
-def fetch_stock_data(symbol, start_date, end_date):
-    stock_data = yf.download(symbol, start=start_date, end=end_date)
-    return stock_data
-
-def calculate_technical_indicators(stock_data):
-    # Calculate moving averages
-    stock_data['MA_10'] = talib.SMA(stock_data['Close'], timeperiod=10)
-    stock_data['MA_20'] = talib.SMA(stock_data['Close'], timeperiod=20)
-
-    # Calculate RSI (Relative Strength Index)
-    stock_data['RSI'] = talib.RSI(stock_data['Close'])
-
-    # Calculate MACD (Moving Average Convergence Divergence)
-    macd, signal, _ = talib.MACD(stock_data['Close'])
-    stock_data['MACD'] = macd
-    stock_data['Signal'] = signal
-
-    return stock_data

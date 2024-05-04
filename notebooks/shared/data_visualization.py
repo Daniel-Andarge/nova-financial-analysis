@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
 from textblob import TextBlob
 import seaborn as sns
+import numpy as np
+import yfinance as yf
 
 def plot_text_length_stats(stats):
     # Extract the statistic values
@@ -77,10 +79,22 @@ def visualize_publication_dates(news_frequency, news_frequency_monthly):
     # Display the line chart for news frequency by month and year
     plt.show()
 
+def plot_domain_frequency(data):
+
+    # Count frequency of each domain
+    domain_counts = data['domain'].value_counts()
+    # Exclude empty domain ('')
+    domain_counts = domain_counts[1:]
+    # Plot bar chart
+    plt.bar(domain_counts.index, domain_counts.values)
+    plt.xlabel('Domains')
+    plt.ylabel('Frequency')
+    plt.title('Frequency of Unique Domains in Headlines')
+    plt.xticks(rotation=45)
+    plt.show()
 
 
-
-def visualize_stock_data(stock_data):
+""" def visualize_stock_data(stock_data):
     # Line plot 
     plt.figure(figsize=(12, 6))
     sns.lineplot(data=stock_data, x='Date', y='Close', hue='Stock', linewidth=2)
@@ -96,4 +110,20 @@ def visualize_stock_data(stock_data):
     plt.title('RSI vs. MACD')
     plt.xlabel('RSI')
     plt.ylabel('MACD')
+    plt.show() """
+
+
+
+def visualize_stock_prices(stock_data, ticker):
+    # Fetch the company name using the ticker
+    ticker_info = yf.Ticker(ticker)
+    company_name = ticker_info.info['longName']
+
+    # Plot the closing prices
+    plt.figure(figsize=(10, 6))
+    plt.plot(stock_data.index, stock_data['Close'])
+    plt.title(f"Historical Stock Prices for {company_name} ({ticker})")
+    plt.xlabel('Date')
+    plt.ylabel('Closing Price')
+    plt.grid(True)
     plt.show()
