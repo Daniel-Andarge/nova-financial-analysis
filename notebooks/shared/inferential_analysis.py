@@ -47,11 +47,6 @@ def analyze_publication_dates(data):
 
 
 
-def perform_sentiment_analysis(data):
-    # Calculate sentiment scores for each headline
-    sentiment_scores = data['headline'].apply(lambda x: TextBlob(x).sentiment.polarity)
-    return sentiment_scores
-
 
 
 
