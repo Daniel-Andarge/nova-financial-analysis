@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 from textblob import TextBlob
+import seaborn as sns
 
 def plot_text_length_stats(stats):
     # Extract the statistic values
@@ -79,3 +80,20 @@ def visualize_publication_dates(news_frequency, news_frequency_monthly):
 
 
 
+def visualize_stock_data(stock_data):
+    # Line plot 
+    plt.figure(figsize=(12, 6))
+    sns.lineplot(data=stock_data, x='Date', y='Close', hue='Stock', linewidth=2)
+    plt.title('Stock Prices')
+    plt.xlabel('Date')
+    plt.ylabel('Closing Price')
+    plt.legend()
+    plt.show()
+
+    # Scatter plot of RSI and MACD
+    plt.figure(figsize=(12, 6))
+    sns.scatterplot(data=stock_data, x='RSI', y='MACD', hue='Stock')
+    plt.title('RSI vs. MACD')
+    plt.xlabel('RSI')
+    plt.ylabel('MACD')
+    plt.show()

@@ -29,6 +29,7 @@ var/
 *.manifest
 *.spec
 
+# Data
 notebooks/data/cleaned_analyst_ratings_dataset.csv
 notebooks/data/raw_analyst_ratings.csv
 
