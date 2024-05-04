@@ -29,6 +29,10 @@ var/
 *.manifest
 *.spec
 
+notebooks/data/cleaned_analyst_ratings_dataset.csv
+notebooks/data/raw_analyst_ratings.csv
+
+
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
