@@ -1,14 +1,48 @@
 import matplotlib.pyplot as plt
 from textblob import TextBlob
 
-def visualize_textual_lengths(data):
-    lengths = data['headline'].str.len()
-    # Create histogram to visualize the distribution of lengths
-    plt.hist(lengths, bins=20)
-    plt.xlabel('Textual Length')
-    plt.ylabel('Frequency')
-    plt.title('Distribution of Textual Lengths')
+def plot_text_length_stats(stats):
+    # Extract the statistic values
+    values = [stats['mean'], stats['median'], stats['minimum'], stats['maximum'], stats['standard_deviation']]
+    labels = ['Mean', 'Median', 'Minimum', 'Maximum', 'Standard Deviation']
+
+    # Create a bar plot
+    plt.figure(figsize=(8, 6))
+    plt.bar(labels, values, color='steelblue')
+
+    # Add labels and title
+    plt.xlabel('Statistic')
+    plt.ylabel('Headline Length')
+    plt.title('Descriptive Analysis of Headline Lengths')
+
+    # Display the plot
     plt.show()
+
+
+
+def plot_publisher_counts(publisher_counts):
+    # Select only the top ten publishers by count
+    top_publishers = publisher_counts[:50]
+
+    # Create a bar chart
+    plt.figure(figsize=(12, 6))
+    ax = top_publishers.plot(kind='bar', color='steelblue')
+    ax.spines['right'].set_visible(False)
+    ax.spines['top'].set_visible(False)
+
+    # Customize the x-axis labels
+    plt.xticks(rotation=45, ha='right')
+
+    # Add labels and title
+    plt.xlabel('Publisher')
+    plt.ylabel('Number of Articles')
+    plt.title('Number of Articles per Top 50 Publishers')
+
+    # Display the plot
+    plt.tight_layout()
+    plt.show()
+
+
 
 def visualize_publication_dates(news_frequency, news_frequency_monthly):
     # Reset index for news_frequency_monthly DataFrame
@@ -41,5 +75,7 @@ def visualize_publication_dates(news_frequency, news_frequency_monthly):
 
     # Display the line chart for news frequency by month and year
     plt.show()
+
+
 
 
