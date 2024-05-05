@@ -7,7 +7,7 @@ def align_datasets(sentiment_data, stock_price_data):
     sentiment_data.set_index('date', inplace=True)
     stock_price_data.set_index('Date', inplace=True)
 
-    # Convert timezone-naive indexes to timezone-aware indexes
+    # Convert to timezone-aware indexes
     
     stock_price_data.index = stock_price_data.index.tz_localize('UTC')
 

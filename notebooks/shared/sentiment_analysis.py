@@ -3,7 +3,7 @@ from nltk.sentiment import SentimentIntensityAnalyzer
 import numpy as np
 
 def perform_sentiment_analysis(data):
-    # Download the 'vader_lexicon' resource
+    # Download the lexicon resource
     nltk.download('vader_lexicon')
 
     # Initialize the sentiment analyzer

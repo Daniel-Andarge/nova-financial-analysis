@@ -1,11 +1,6 @@
 
 import pandas as pd
 
-from textblob import TextBlob
-import matplotlib.pyplot as plt
-
-
-
 def analyze_publication_dates(data):
     # Extract date components for analysis
     data['date'] = pd.to_datetime(data['date'], errors='coerce')
