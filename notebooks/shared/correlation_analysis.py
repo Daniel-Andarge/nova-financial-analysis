@@ -12,6 +12,8 @@ def align_datasets(sentiment_data, stock_price_data):
     aligned_data = sentiment_data.join(stock_price_data, how='inner')
 
     
-
+    start_date = max(sentiment_data.index.min(), stock_price_data.index.min())
+    end_date = min(sentiment_data.index.max(), stock_price_data.index.max())
+    aligned_data = aligned_data.loc[start_date:end_date]
 
     return aligned_data
