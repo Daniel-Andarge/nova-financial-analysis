@@ -28,22 +28,7 @@ def analyze_publication_dates(data):
     
 
 
-""" def perform_sentiment_analysis(data):
 
-    # Initialize sentiment analysis pipeline
-    sentiment_pipeline = pipeline("sentiment-analysis")
-
-    # Perform sentiment analysis on each headline
-    sentiment_results = []
-    for headline in data['headline']:
-        sentiment = sentiment_pipeline(headline)[0]
-        sentiment_results.append(sentiment)
-
-    # Create a new column in the dataset for sentiment results
-    data['sentiment'] = sentiment_results
-
-    # Print the results
-    print(data[['headline', 'sentiment']]) """
 
 
 
