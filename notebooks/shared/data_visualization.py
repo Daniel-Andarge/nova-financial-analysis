@@ -79,6 +79,8 @@ def visualize_publication_dates(news_frequency, news_frequency_monthly):
     # Display the line chart for news frequency by month and year
     plt.show()
 
+    
+
 def plot_domain_frequency(data):
 
     # Count frequency of each domain
